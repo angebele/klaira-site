@@ -130,7 +130,7 @@ nav{
 .hero-logo-big{
   margin-bottom:16px;
 }
-.hero-logo-big canvas{
+.hero-logo-big img{
   height:clamp(112px,13vw,176px);width:auto;
   display:block;
 }
@@ -985,39 +985,5 @@ document.querySelectorAll('.faq-row').forEach(row => {
 });
 </script>
 
-<script>
-// Rend le fond noir du logo transparent via Canvas
-(function(){
-  var img = document.getElementById('hero-logo-img');
-  if(!img) return;
-  function processLogo(){
-    var canvas = document.createElement('canvas');
-    canvas.width = img.naturalWidth || img.width;
-    canvas.height = img.naturalHeight || img.height;
-    var ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    var data = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var d = data.data;
-    for(var i = 0; i < d.length; i += 4){
-      var r = d[i], g = d[i+1], b = d[i+2];
-      // Si le pixel est sombre (proche du noir) → transparent
-      if(r < 40 && g < 40 && b < 40){
-        d[i+3] = 0; // alpha = 0
-      }
-    }
-    ctx.putImageData(data, 0, 0);
-    // Copier les styles de l'img
-    canvas.style.height = 'clamp(112px, 13vw, 176px)';
-    canvas.style.width = 'auto';
-    canvas.style.display = 'block';
-    img.parentNode.replaceChild(canvas, img);
-  }
-  if(img.complete && img.naturalWidth){
-    processLogo();
-  } else {
-    img.addEventListener('load', processLogo);
-  }
-})();
-</script>
 </body>
 </html>
