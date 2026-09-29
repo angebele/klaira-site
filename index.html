@@ -96,10 +96,11 @@ nav{
 }
 .hero-tag::before{content:'';width:28px;height:1px;background:var(--b)}
 .hero-h1{
-  font-family:var(--fd);font-size:clamp(48px,7vw,96px);font-weight:300;
+  font-family:var(--fd);font-size:clamp(28px,8.2vw,96px);font-weight:300;
   line-height:.95;letter-spacing:-.02em;color:var(--p);margin-bottom:32px;
 }
-.hero-h1 em{font-style:italic;color:var(--b);display:block}
+.hero-h1 em{font-style:italic;color:var(--b);display:block;white-space:nowrap}
+.hero-h1-white{color:var(--p)}
 .hero-tagline{font-family:var(--fd);font-style:italic;font-size:clamp(16px,1.6vw,20px);font-weight:400;color:var(--b);margin-bottom:20px}
 .hero-sub{font-size:15px;font-weight:300;color:rgba(242,234,216,.6);max-width:460px;line-height:1.8;margin-bottom:18px}
 .hero-trust{font-family:var(--fs);font-size:11px;font-weight:300;letter-spacing:.08em;color:rgba(242,234,216,.32);margin-bottom:44px}
@@ -605,7 +606,7 @@ footer{background:var(--t);padding:48px 7vw 0}
     </div>
     <div class="hero-tag">Klaira · Vision for Business</div>
     <h1 class="hero-h1">
-      <em>Play the long Game.</em>
+      <em>Play the long <span class="hero-h1-white">Game.</span></em>
     </h1>
     <p class="hero-tagline">De la clarté pour décider, de la robustesse pour durer.</p>
     <p class="hero-sub">Klaira aide les dirigeants à construire, par le marketing, une croissance claire dans ses choix, viable dans la durée et solide face à l'instabilité.</p>
